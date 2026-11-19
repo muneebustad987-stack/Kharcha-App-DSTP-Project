@@ -76,13 +76,10 @@ class _SplashScreenState extends State<SplashScreen> {
                             setState(() {
                               isLoading = true;
                             });
-
                             await Future.delayed(const Duration(seconds: 2));
-
                             var route = MaterialPageRoute(
                               builder: (_) => const LoginPage(),
                             );
-
                             Navigator.pushReplacement(context, route);
                           },
                     child: isLoading
