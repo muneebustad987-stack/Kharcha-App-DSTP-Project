@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_kharcha/veiws/Splash_screen.dart';
+import 'package:my_kharcha/veiws/Signup_Screen.dart';
 
 import '../constants/app_colors.dart';
 
@@ -17,11 +17,12 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passController = TextEditingController();
   FocusNode emailFocus = FocusNode();
   FocusNode passFocus = FocusNode();
+  bool isLoading = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBg,
-      body:  SafeArea(
+      body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -44,7 +45,6 @@ class _LoginPageState extends State<LoginPage> {
                 color: AppColors.appBg,
               ),
             ),
-            SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -62,145 +62,250 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 10),
                   Text(
                     "Log in to see your expenses on any device.",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
                   ),
                   SizedBox(height: 20),
                   Text(
-                      "Email",
+                    "Email",
                     style: TextStyle(
                       color: AppColors.greyTxt,
                       fontSize: 16,
                       fontWeight: FontWeight.w200,
                     ),
                   ),
-                 SizedBox(height: 10),
-                 TextField(
-                controller: emailController,
-                textInputAction: TextInputAction.next,
-                focusNode: emailFocus,
-                onTap: () {
-                  setState(() {});
-                },
-                onEditingComplete: () {
-                  FocusScope.of(context).requestFocus(passFocus);
-                },
-                keyboardType: TextInputType.emailAddress,
-                enableSuggestions: true,
-                style: const TextStyle(color: AppColors.greyTxt),
-                decoration: InputDecoration(
-                  fillColor: AppColors.bottomNavBarBg,
-                  filled: true,
-
-                  hintText: "muneebsheikh@gmail.com",
-                  hintStyle: const TextStyle(color: AppColors.greyTxt),
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  prefixIconColor: Colors.blue,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: const BorderSide(
-                      color: Colors.grey,
-                      width: 1.0,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: const BorderSide(
-                      color: AppColors.greyTxt,
-                      width: 2.0,
-                    ),
-                  ),
-                  border: const OutlineInputBorder(),
-                ),
-              ),
-                  SizedBox(height: 20),
-                  Text(
-                    "Password",
-                    style: TextStyle(
-                      color: AppColors.greyTxt
-                    ),
-                  ),
                   SizedBox(height: 10),
-               TextField(
-                obscureText: isProtected,
-                focusNode: passFocus,
-                autofillHints: const [AutofillHints.password],
-                style: const TextStyle(color: AppColors.greyTxt),
-                decoration: InputDecoration(
-                  fillColor: AppColors.appBg,
-                  filled: true,
-                  hintText: "Password",
-                  hintStyle: const TextStyle(color: AppColors.greyTxt),
-                  prefixIcon: const Icon(Icons.lock_outline),
-                  prefixIconColor: Colors.blue,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: const BorderSide(
-                      color: AppColors.greyTxt,
-                      width: 1.0,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: const BorderSide(
-                      color: AppColors.greyTxt,
-                      width: 2.0,
-                    ),
-                  ),
-                  border: const OutlineInputBorder(),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      isProtected = !isProtected;
+                  TextField(
+                    controller: emailController,
+                    textInputAction: TextInputAction.next,
+                    focusNode: emailFocus,
+                    onTap: () {
                       setState(() {});
                     },
-                    icon: isProtected
-                        ? const Icon(
-                      Icons.visibility_off_outlined,
-                      color: AppColors.greyTxt,
-                    )
-                        : const Icon(
-                      Icons.visibility_outlined,
-                      color: AppColors.greyTxt,
+                    onEditingComplete: () {
+                      FocusScope.of(context).requestFocus(passFocus);
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                    enableSuggestions: true,
+                    style: const TextStyle(color: AppColors.greyTxt),
+                    decoration: InputDecoration(
+                      fillColor: AppColors.bottomNavBarBg,
+                      filled: true,
+
+                      hintText: "muneebsheikh@gmail.com",
+                      hintStyle: const TextStyle(color: AppColors.greyTxt),
+                      prefixIcon: const Icon(Icons.email_outlined),
+                      prefixIconColor: Colors.blue,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: const BorderSide(
+                          color: AppColors.greyTxt,
+                          width: 2.0,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(),
                     ),
                   ),
-                ),
-              ),
+                  SizedBox(height: 20),
+                  Text("Password", style: TextStyle(color: AppColors.greyTxt)),
+                  SizedBox(height: 10),
+                  TextField(
+                    obscureText: isProtected,
+                    focusNode: passFocus,
+                    autofillHints: const [AutofillHints.password],
+                    style: const TextStyle(color: AppColors.greyTxt),
+                    decoration: InputDecoration(
+                      fillColor: AppColors.appBg,
+                      filled: true,
+                      hintText: "Password",
+                      hintStyle: const TextStyle(color: AppColors.greyTxt),
+                      prefixIcon: const Icon(Icons.lock_outline),
+                      prefixIconColor: Colors.blue,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: const BorderSide(
+                          color: AppColors.greyTxt,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: const BorderSide(
+                          color: AppColors.greyTxt,
+                          width: 2.0,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          isProtected = !isProtected;
+                          setState(() {});
+                        },
+                        icon: isProtected
+                            ? const Icon(
+                                Icons.visibility_off_outlined,
+                                color: AppColors.greyTxt,
+                              )
+                            : const Icon(
+                                Icons.visibility_outlined,
+                                color: AppColors.greyTxt,
+                              ),
+                      ),
+                    ),
+                  ),
                   SizedBox(height: 10),
                   Align(
                     alignment: Alignment.topRight,
-                   child:  Text(
-                    "Forgot password?",
-                    style: GoogleFonts.sarabun(
+                    child: Text(
+                      "Forgot password?",
+                      style: GoogleFonts.sarabun(
                         color: AppColors.greenBg,
                         fontSize: 15,
-                        fontWeight: FontWeight.w800
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
-                  )
                   ),
                   SizedBox(height: 20),
                   Container(
-                    height: 40,
+                    padding: EdgeInsets.symmetric(horizontal: 16),
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: AppColors.greenBg,
-                      borderRadius: BorderRadius.circular(10),
+                    height: 40,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.greenBg,
+                      ),
+                      onPressed: () async {
+                        isLoading = true;
+                        setState(() {});
+                        await Future.delayed(Duration(seconds: 3));
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignupScreen(),
+                          ),
+                        );
+                        isLoading = false;
+                        setState(() {});
+                      },
+                      child: isLoading
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.appBg,
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                const Text(
+                                  "Signing...",
+                                  style: TextStyle(
+                                    color: AppColors.appBg,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ],
+                            )
+                          : const Text(
+                              "LOGIN",
+                              style: TextStyle(
+                                color: AppColors.appBg,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                     ),
-                    child: Center(
-                      child: Text(
-                        "Login",
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 18,
-                          color: AppColors.bottomNavBarBg,
-                          fontWeight: FontWeight.w600,
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Divider(color: AppColors.greyTxt, thickness: 1),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Text(
+                          'or',
+                          style: TextStyle(
+                            color: AppColors.blackTxt,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
+                      Expanded(
+                        child: Divider(color: AppColors.greyTxt, thickness: 1),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                   Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    width: double.infinity,
+                    height: 40,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.bottomNavBarBg,
+                      ),
+                      onPressed: () async {
+                        isLoading = true;
+                        setState(() {});
+                        await Future.delayed(Duration(seconds: 3));
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignupScreen(),
+                          ),
+                        );
+                        isLoading = false;
+                        setState(() {});
+                      },
+                      child: isLoading
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.appBg,
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                const Text(
+                                  "Signing...",
+                                  style: TextStyle(
+                                    color: AppColors.appBg,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ],
+                            )
+                          : const Text(
+                              "Continue With Google",
+                              style: TextStyle(
+                                color: AppColors.blackTxt,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
