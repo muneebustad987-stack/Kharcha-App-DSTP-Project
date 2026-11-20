@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_kharcha/veiws/Signup_Screen.dart';
+import 'package:my_kharcha/veiws/Splash_screen.dart';
 
 import '../constants/app_colors.dart';
 
@@ -17,14 +18,14 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passController = TextEditingController();
   FocusNode emailFocus = FocusNode();
   FocusNode passFocus = FocusNode();
-  bool isLoading = true;
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBg,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               padding: EdgeInsets.only(
@@ -93,8 +94,6 @@ class _LoginPageState extends State<LoginPage> {
 
                       hintText: "muneebsheikh@gmail.com",
                       hintStyle: const TextStyle(color: AppColors.greyTxt),
-                      prefixIcon: const Icon(Icons.email_outlined),
-                      prefixIconColor: Colors.blue,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: const BorderSide(
@@ -123,10 +122,8 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       fillColor: AppColors.appBg,
                       filled: true,
-                      hintText: "Password",
+                      hintText: "Enter Your Password",
                       hintStyle: const TextStyle(color: AppColors.greyTxt),
-                      prefixIcon: const Icon(Icons.lock_outline),
-                      prefixIconColor: Colors.blue,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: const BorderSide(
@@ -160,17 +157,18 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Text(
-                      "Forgot password?",
-                      style: GoogleFonts.sarabun(
-                        color: AppColors.greenBg,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
+                  TextButton(onPressed: (){},
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: Text(
+                          "Forgot password?",
+                          style: GoogleFonts.sarabun(
+                            color: AppColors.greenBg,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ) ),
                   SizedBox(height: 20),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 16),
@@ -185,12 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                         setState(() {});
                         await Future.delayed(Duration(seconds: 3));
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignupScreen(),
-                          ),
-                        );
+
                         isLoading = false;
                         setState(() {});
                       },
@@ -258,42 +251,17 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor: AppColors.bottomNavBarBg,
                       ),
                       onPressed: () async {
-                        isLoading = true;
                         setState(() {});
                         await Future.delayed(Duration(seconds: 3));
-
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignupScreen(),
+                            builder: (context) => const SplashScreen(),
                           ),
                         );
-                        isLoading = false;
                         setState(() {});
                       },
-                      child: isLoading
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    color: AppColors.appBg,
-                                    strokeWidth: 2,
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                const Text(
-                                  "Signing...",
-                                  style: TextStyle(
-                                    color: AppColors.appBg,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ],
-                            )
-                          : const Text(
+                          child:  const Text(
                               "Continue With Google",
                               style: TextStyle(
                                 color: AppColors.blackTxt,
@@ -303,6 +271,33 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                     ),
                   ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "New to Kharcha? ",
+                        style: TextStyle(color: AppColors.greyTxt),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignupScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Create account",
+                          style: TextStyle(color: AppColors.greenBg,
+                            fontWeight: FontWeight.w800
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
