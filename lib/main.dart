@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:my_kharcha/veiws/LoginScreen.dart';
 import 'package:my_kharcha/veiws/Splash_screen.dart';
+// import 'package:my_kharcha/veiws/Splash_screen.dart';
+// import 'package:my_kharcha/veiws/bottom_navbar.dart';
 
 
 void main() {

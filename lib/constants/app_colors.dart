@@ -8,4 +8,5 @@ class AppColors {
   static const greyTxt = Color(0xFF5B6778);
   static const lightGreen = Color(0xFFDCF2E8);
   static const linearBarLight = Color(0xFF3A9A80);
+  static const iconBackground = (0xFFFFF1D6);
 }
