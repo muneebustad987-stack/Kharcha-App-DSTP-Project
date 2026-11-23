@@ -63,7 +63,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 30,
+                          horizontal: 20,
                           vertical: 20,
                         ),
                         child: Column(
@@ -86,7 +86,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           ],
                         ),
                       ),
-                      Spacer(),
+                      SizedBox(width: 10),
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 30,

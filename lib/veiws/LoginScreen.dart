@@ -71,10 +71,10 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 20),
                     Text(
                       "Email",
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: AppColors.greyTxt,
                         fontSize: 16,
-                        fontWeight: FontWeight.w200,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(height: 10),
@@ -117,7 +117,11 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 20),
                     Text(
                       "Password",
-                      style: TextStyle(color: AppColors.greyTxt),
+                      style: GoogleFonts.plusJakartaSans(
+                          color: AppColors.greyTxt,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     SizedBox(height: 10),
                     TextField(
