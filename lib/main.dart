@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_kharcha/veiws/Splash_screen.dart';
-import 'package:my_kharcha/veiws/monthly_budget.dart';
+// import 'package:my_kharcha/veiws/monthly_budget.dart';
 // import 'package:my_kharcha/veiws/Splash_screen.dart';
 // import 'package:my_kharcha/veiws/bottom_navbar.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MonthlyBudget(),
+      home: const SplashScreen(),
     );
   }
 }
