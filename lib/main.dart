@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_kharcha/veiws/Splash_screen.dart';
+import 'package:my_kharcha/veiws/category_screen.dart';
 // import 'package:my_kharcha/veiws/monthly_budget.dart';
 // import 'package:my_kharcha/veiws/Splash_screen.dart';
 // import 'package:my_kharcha/veiws/bottom_navbar.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

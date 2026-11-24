@@ -185,7 +185,6 @@ class _SummaryScreenState extends State<SummaryScreen> {
                     ),
 
                     SizedBox(width: 12),
-
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -240,38 +239,144 @@ class _SummaryScreenState extends State<SummaryScreen> {
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(color: Colors.grey.shade300),
                 ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsGeometry.symmetric(
-                        horizontal: 8,
-                        vertical: 10,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Spending by week",
+                            style: GoogleFonts.plusJakartaSans(
+                              color: AppColors.blackTxt,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            "Highest: Week 2",
+                            style: GoogleFonts.plusJakartaSans(
+                              color: AppColors.greyTxt,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "Spending by week",
-                        style: GoogleFonts.plusJakartaSans(
-                          color: AppColors.blackTxt,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
+                      SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 130,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                children: [
+                                  Text(
+                                    "8.2K",
+                                    style: GoogleFonts.plusJakartaSans(
+                                      color: AppColors.blackTxt,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Container(
+                                    height: 93,
+                                    width: 56,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.lightGreen,
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(12),
+                                        topLeft: Radius.circular(12),
+                                      )
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    "11.4K",
+                                    style: GoogleFonts.plusJakartaSans(
+                                      color: AppColors.blackTxt,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Container(
+                                    height: 100,
+                                    width: 46,
+                                    decoration: BoxDecoration(
+                                        color: AppColors.greenBg,
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(12),
+                                          topLeft: Radius.circular(12),
+                                        )
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    "9.8K",
+                                    style: GoogleFonts.plusJakartaSans(
+                                      color: AppColors.blackTxt,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Container(
+                                    height: 100,
+                                    width: 56,
+                                    decoration: BoxDecoration(
+                                        color: AppColors.lightGreen,
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(12),
+                                          topLeft: Radius.circular(12),
+                                        )
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    "10.6K",
+                                    style: GoogleFonts.plusJakartaSans(
+                                      color: AppColors.blackTxt,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Container(
+                                    height: 100,
+                                    width: 44,
+                                    decoration: BoxDecoration(
+                                        color: AppColors.lightGreen,
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(12),
+                                          topLeft: Radius.circular(12),
+                                        )
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "Highest: Week 2",
-                        style: GoogleFonts.plusJakartaSans(
-                          color: AppColors.greyTxt,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

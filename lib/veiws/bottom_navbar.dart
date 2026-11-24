@@ -58,7 +58,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
-
   Widget navbarItem({
     required String label,
     required int index,

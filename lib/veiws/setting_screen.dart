@@ -51,7 +51,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     children: [
                       CircleAvatar(
                         backgroundColor: AppColors.lightGreen,
-                        radius: 30,
+                        radius: 26,
                         child: Text(
                           "MS",
                           style: GoogleFonts.plusJakartaSans(
@@ -90,7 +90,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 30,
-                          horizontal: 30,
+                          horizontal: 10,
                         ),
                         child: Column(
                           children: [
