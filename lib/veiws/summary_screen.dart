@@ -52,7 +52,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(padding: EdgeInsets.all(1.0)),
-                    Container(
+                    SizedBox(
                       width: 90.0,
                       height: 30,
                       child: Text(
@@ -82,7 +82,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 90.0,
                       height: 30,
                       child: Center(
