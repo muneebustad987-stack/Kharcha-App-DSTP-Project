@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_kharcha/constants/app_colors.dart';
+import 'package:my_kharcha/veiws/Add_expense_screen.dart';
 import 'package:my_kharcha/veiws/HomeScreen.dart';
 import 'package:my_kharcha/veiws/expenses_screen.dart';
 import 'package:my_kharcha/veiws/setting_screen.dart';
@@ -37,14 +38,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: [
               navbarItem(label: 'Home', index: 0, navBarIcon: Icons.home),
               navbarItem(label: 'Expenses', index: 1, navBarIcon: Icons.list),
-              Container(
-                height: 52,
-                width: 52,
-                decoration: const BoxDecoration(
-                  color: AppColors.greenBg,
-                  shape: BoxShape.circle,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AddExpenseScreen(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 52,
+                  width: 52,
+                  decoration: const BoxDecoration(
+                    color: AppColors.greenBg,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.add, color: AppColors.bottomNavBarBg),
                 ),
-                child: const Icon(Icons.add, color: AppColors.bottomNavBarBg),
               ),
               navbarItem(
                 label: 'Summary',

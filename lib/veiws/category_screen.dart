@@ -437,11 +437,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.greenBg,
                     ),
-                    onPressed: () async {
-                      isLoading = false;
-                      setState(() {});
-                      await Future.delayed(Duration(seconds: 3));
-
+                    onPressed: ()  {
                       isLoading = false;
                       setState(() {});
                     },
@@ -461,10 +457,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             ],
                           )
                         : Text(
-                            "Save Budget",
+                            "+ Add Category",
                             style: GoogleFonts.plusJakartaSans(
                               color: AppColors.appBg,
-                              fontSize: 20,
+                              fontSize: 22,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
