@@ -244,7 +244,7 @@ class _MonthlyBudgetState extends State<MonthlyBudget> {
                       LinearProgressIndicator(
                         value: 0.75,
                         color: AppColors.linearBarLight,
-                        backgroundColor: AppColors.bottomNavBarBg,
+                        backgroundColor: Colors.grey.shade300,
                         minHeight: 8,
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -278,7 +278,7 @@ class _MonthlyBudgetState extends State<MonthlyBudget> {
                       LinearProgressIndicator(
                         value: 0.92,
                         color: Colors.red,
-                        backgroundColor: AppColors.bottomNavBarBg,
+                        backgroundColor: Colors.grey.shade300,
                         minHeight: 8,
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -312,7 +312,7 @@ class _MonthlyBudgetState extends State<MonthlyBudget> {
                       LinearProgressIndicator(
                         value: 0.85,
                         color: Colors.deepOrange,
-                        backgroundColor: AppColors.bottomNavBarBg,
+                        backgroundColor: Colors.grey.shade300,
                         minHeight: 8,
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -346,7 +346,7 @@ class _MonthlyBudgetState extends State<MonthlyBudget> {
                       LinearProgressIndicator(
                         value: 0.62,
                         color: AppColors.linearBarLight,
-                        backgroundColor: AppColors.bottomNavBarBg,
+                        backgroundColor: Colors.grey.shade300,
                         minHeight: 8,
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -380,7 +380,7 @@ class _MonthlyBudgetState extends State<MonthlyBudget> {
                       LinearProgressIndicator(
                         value: 0.58,
                         color: AppColors.linearBarLight,
-                        backgroundColor: AppColors.bottomNavBarBg,
+                        backgroundColor: Colors.grey.shade300,
                         minHeight: 8,
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -414,7 +414,7 @@ class _MonthlyBudgetState extends State<MonthlyBudget> {
                       LinearProgressIndicator(
                         value: 0.80,
                         color: Colors.deepOrange,
-                        backgroundColor: AppColors.bottomNavBarBg,
+                        backgroundColor: Colors.grey.shade300,
                         minHeight: 8,
                         borderRadius: BorderRadius.circular(20),
                       ),

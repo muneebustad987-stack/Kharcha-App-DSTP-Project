@@ -23,6 +23,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
     'Shopping',
     'Entertainment',
     'Daraz order',
+    'Cinema tickets'
   ];
 
   @override
