@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_kharcha/veiws/Splash_screen.dart';
-import 'package:my_kharcha/veiws/category_screen.dart';
 
 // import 'package:my_kharcha/veiws/monthly_budget.dart';
 
