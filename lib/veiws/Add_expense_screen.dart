@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_kharcha/constants/app_colors.dart';
+import 'package:my_kharcha/veiws/Edit_expenses.dart';
 
 class AddExpenseScreen extends StatefulWidget {
   const AddExpenseScreen({super.key});
@@ -81,7 +82,13 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Rs."),
+                    Text("Rs.",
+                      style: GoogleFonts.plusJakartaSans(
+                        color: AppColors.greyTxt,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
                     SizedBox(
                       width: (priceController.text.length * 15.0 + 30).clamp(
                         150.0,
@@ -95,7 +102,10 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                           setState(() {});
                         },
                         keyboardType: TextInputType.number,
-                        style: const TextStyle(color: AppColors.greyTxt),
+                        style:  GoogleFonts.plusJakartaSans(color: AppColors.blackTxt,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                        ),
                         decoration: InputDecoration(
                           fillColor: Colors.transparent,
                           filled: true,
@@ -118,27 +128,6 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ),
                   ],
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text(
-                //       "Rs",
-                //       style: GoogleFonts.plusJakartaSans(
-                //         color: AppColors.greyTxt,
-                //         fontSize: 26,
-                //         fontWeight: FontWeight.w700,
-                //       ),
-                //     ),
-                //     Text(
-                //       "1,250",
-                //       style: GoogleFonts.plusJakartaSans(
-                //         color: AppColors.blackTxt,
-                //         fontSize: 38,
-                //         fontWeight: FontWeight.w800,
-                //       ),
-                //     )
-                //   ],
-                // ),
               ],
             ),
             SizedBox(height: 10),
@@ -266,7 +255,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            Spacer(),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
               width: double.infinity,
@@ -276,14 +265,19 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   backgroundColor: AppColors.greenBg,
                 ),
                 onPressed: () {
-                  isLoading = false;
-                  setState(() {});
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EditExpenses(),
+                    ),
+                  );
+                    setState(() {});
                 },
                 child: isLoading
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const SizedBox(
+                           SizedBox(
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
@@ -291,7 +285,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                               strokeWidth: 2,
                             ),
                           ),
-                          const SizedBox(width: 12),
+                           SizedBox(width: 12),
                         ],
                       )
                     : Text(
@@ -304,6 +298,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       ),
               ),
             ),
+            SizedBox(height: 30),
           ],
         ),
       ),

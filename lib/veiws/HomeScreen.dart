@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:my_kharcha/constants/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   List<Map<String, dynamic>> myList = [
     {
       'title': 'Biryani lunch',
@@ -52,10 +56,28 @@ class _HomeScreenState extends State<HomeScreen> {
       'bgColor': Color(0xFFEDE2FF),
     },
   ];
+  File? myImage ;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+     floatingActionButton:  FloatingActionButton(
+       heroTag: UniqueKey(),
+       key: UniqueKey(),
+       onPressed: () async {
+         ImagePicker picker = ImagePicker();
+         XFile? image = await picker.pickImage(source: ImageSource.gallery);
+         if (image != null) {
+           myImage = File(image.path);
+           if (myImage != null){
+             print("Image Path ${myImage!.path}");
+             setState(() {});
+           }
+         }
+       } ,
+       child: Icon(Icons.browse_gallery),
+     ),
       backgroundColor: AppColors.appBg,
       body: SafeArea(
         child: Padding(
@@ -64,6 +86,16 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Row(
                 children: [
+                 myImage != null 
+                  ? CircleAvatar(
+                   backgroundColor: AppColors.lightGreen,
+                   radius: 38,
+                   child: CircleAvatar(
+                     radius: 32,
+                     backgroundImage: FileImage(myImage!),
+                   ),
+                 )
+                 : SizedBox.shrink(),
                   RichText(
                     text: TextSpan(
                       text: "Good Morning",
@@ -100,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               SizedBox(height: 20),
+              
               Container(
                 width: double.infinity,
                 height: 160,
@@ -255,6 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: AppColors.blackTxt,
                               ),
                             ),
+                            
                           ],
                         ),
                       );
@@ -262,7 +296,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+
             ],
+
           ),
         ),
       ),
